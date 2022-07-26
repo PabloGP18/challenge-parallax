@@ -2,6 +2,32 @@
 html, body, #container { width: 100%; height: 100%; }
 body { margin: 0; }
 
+#start {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 11;
+    background-color: darkgray;
+    height: 100vh;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    opacity: 80%;
+}
+
+#container-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+#start-button{
+    padding: 50px;
+    border-radius: 10%;
+    border: 1px solid lightgray;
+}
+
 #container {
     background: url('images/11_background.png');
     image-rendering: pixelated;
