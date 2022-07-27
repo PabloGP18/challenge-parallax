@@ -2,6 +2,17 @@
 html, body, #container { width: 100%; height: 100%; }
 body { margin: 0; }
 
+
+#game{
+    margin: 0 auto;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #start {
     position: absolute;
     left: 50%;
@@ -36,85 +47,101 @@ body { margin: 0; }
 }
 
 #ground {
-    background: url('images/01_ground.png');
-    animation: loop 9s linear infinite;
+    background: url('images/01_ground.png') repeat-x 0 bottom;
+    /*animation: loop 9s linear infinite;*/
     z-index: 10;
+}
+#kolobok{
+    background: url('images/kolobok1_copy.png') repeat-x 0 bottom;
+    z-index: 10;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: 600px;
+    background-repeat: no-repeat;
+    animation: kolobok 5s infinite linear;
+    background-size: cover;
+    display: none;
+}
+
+@keyframes  kolobok{
+    0% {
+        left: 100%;
+    }
+    100% {
+        left: -40px;
+    }
 }
 
 #idle{
-    background: url('images/idle.gif')  0 bottom;
+    background: url('images/idle.gif')repeat-x 0 bottom;
     z-index: 10;
-    width: 100%;
-    height: 87%;
+    width: 150px;
+    height: 220px;
+    top: 400px;
     background-repeat: no-repeat;
-    background-size: 250px;
+    background-size: cover;
     position: relative;
     left: 200px;
 }
 
 .animate-jump {
-    animation: jump 400ms;
+    animation: jump 500ms;
 }
 
-@keyframes jump {
-    0% {
-        bottom: 1rem;
-    }
-    30% {
-        bottom: 20%;
-    }
-    70% {
-        bottom: 20%;
-    }
-    100% {
-        bottom: 1rem;
-    }
+@keyframes jump{
+    0%{top:400px;}
+    30%{top:200px;}
+    70%{top:200px;}
+    80%{top:200px;}
+    90%{top:200px;}
+    100%{top:400px;}
 }
-
 
 #trees_and_bushes {
-    background: url('images/02_trees and bushes.png');
-    animation: loop 7s linear infinite;
+    background: url('images/02_trees and bushes.png')repeat-x 0 bottom;
+   /* animation: loop 7s linear infinite;*/
     z-index: 9;
 }
 
 #distant_trees{
-    background: url('images/03_distant_trees.png');
-    animation: loop 6s linear infinite;
+    background: url('images/03_distant_trees.png')repeat-x 0 bottom;
+    /*animation: loop 6s linear infinite;*/
     z-index: 8;
 }
 
 #hill1{
-    background: url('images/05_hill1.png');
-    animation: loop 5s linear infinite;
+    background: url('images/05_hill1.png')repeat-x 0 bottom;
+    /*animation: loop 5s linear infinite;*/
     z-index: 7;
 }
 
 #hill2{
-    background: url('images/06_hill2.png');
-    animation: loop 4s linear infinite;
+    background: url('images/06_hill2.png')repeat-x 0 bottom;
+    /*animation: loop 4s linear infinite;*/
     z-index: 6;
 }
 
 #huge_clouds{
-    background: url('images/07_huge_clouds.png');
-    animation: loop 4s linear infinite;
+    background: url('images/07_huge_clouds.png')repeat-x 0 bottom;
+    /*animation: loop 4s linear infinite;*/
     z-index: 5;
 }
 
 #clouds {
-    background: url('images/08_clouds.png');
-    animation: loop 4s linear infinite;
+    background: url('images/08_clouds.png')repeat-x 0 bottom;
+    /*animation: loop 4s linear infinite;*/
     z-index: 4;
 }
 
 #distant_clouds {
-    background: url('images/10_distant_clouds.png');
-    animation: loop 4s linear infinite;
+    background: url('images/10_distant_clouds.png')repeat-x 0 bottom;
+    /*animation: loop 4s linear infinite;*/
     z-index: 4;
 }
 
-#ground, #trees_and_bushes, #distant_trees, #hill1, #hill2, #huge_clouds, #distant_trees,#clouds,#distant_clouds{
+
+#ground, #trees_and_bushes, #distant_trees, #hill1, #hill2, #huge_clouds, #distant_trees, #clouds, #distant_clouds{
     width: 250%; height: 100%;
     background-size: 30%;
     bottom: 0; left: 0;
