@@ -1,5 +1,9 @@
-// get our character
-let character = document.getElementById("idle");
+let character = document.getElementById('character');
+let block = document.getElementById('block');
+let counter = 0;
+let score = document.getElementById('score');
+score.style.display = 'none';
+block.style.display = 'none';
 
 //get our backgrounds
 let ground = document.getElementById("ground");
@@ -27,6 +31,7 @@ function start() {
     clouds.style.animation ="loop 4s linear infinite";
     distantClouds.style.animation ="loop 4s linear infinite";
     character.style.backgroundImage = "url(images/run.gif)";
+    score.style.display = "block";
 }
 
 function pause() {
@@ -43,10 +48,14 @@ function pause() {
     startBtn.setAttribute('value',
         'RESTART');
     character.style.backgroundImage = "url(images/idle.gif)";
+    block.style.display ="none";
+    score.style.display = "none";
 }
 
+
 startBtn.addEventListener("click", ()=>{
-    startDiv.style.display="none";
+    startDiv.style.display="none"
+    block.style.display ="block";
     start();
 });
 
@@ -55,7 +64,9 @@ function escape(e) {
         pause();
     }
 };
+
 document.addEventListener("keydown", escape);
+
 
 function spaceBar(e) {
     if(e.keyCode === 32){
@@ -65,7 +76,6 @@ function spaceBar(e) {
 document.addEventListener("keydown", spaceBar);
 
 
-// jump function
 function jumping() {
     character.classList.add("animate-jump");
     character.style.backgroundImage = "url(images/jump.gif)";
@@ -75,16 +85,26 @@ function jumping() {
     }, 800);
 };
 
-/*Window.addEventListener("keydown", function(event) {
-    jumping();
-        escape();
+setInterval(function(){
+    let characterTop = parseInt(window.getComputedStyle(character).getPropertyValue('top'));
+    let blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue('left'));
+    if(blockLeft <50 && blockLeft >0 && characterTop >= 550){
 
-    if (event.defaultPrevented) {
-        return; // Do nothing if event already handled
+        alert("Game Over. score: "+Math.floor(counter/100));
+        counter = 0;
+        block.style.animation = "block 3s infinite linear";
+        character.classList.add("animate-dead");
+        character.style.backgroundImage = "url(images/dead.gif)";
+        setTimeout(function (){
+            character.classList.remove("animate-dead");
+            character.style.backgroundImage = "url(images/idle.gif)";
+        }, 800);
+    }else {
+        counter++;
+        document.getElementById("scoreSpan").innerHTML = Math.floor(counter / 100);
     }
 
-});*/
+},10);
 
 
-let overlap = overlap
-//document.addEventListener('click', jumping);
+
