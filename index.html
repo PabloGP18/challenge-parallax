@@ -1,41 +1,35 @@
-<html>
-<html lang="en">
+<html lang="en" onclick="jump()">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Jumper</title>
+    <title>Title</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
 <body>
 <div id="container">
-    <div id="start">
-        <div id="container-button">
-            <input id="start-button" type="button" value="START">
+    <div id="game">
+        <div id="start">
+            <div id="container-button">
+                <input id="start-button" type="button" value="START">
+            </div>
         </div>
+        <div id="background"></div>
+        <div id="ground"></div>
+        <div id="trees_and_bushes"></div>
+        <div id="bushes"></div>
+        <div id="distant_trees"></div>
+        <div id="hill1"></div>
+        <div id="hill2"></div>
+        <div id="huge_clouds"></div>
+        <div id="clouds"></div>
+        <div id="distant_clouds"></div>
+        <div id="distant_clouds1"></div>
+        <div id="character"></div>
+        <div id="block"></div>
     </div>
-
-    <!--images parallax -->
-    <div id="background"></div>
-    <div id="ground"></div>
-    <div id="trees_and_bushes"></div>
-    <div id="bushes"></div>
-    <div id="distant_trees"></div>
-    <div id="hill1"></div>
-    <div id="hill2"></div>
-    <div id="huge_clouds"></div>
-    <div id="clouds"></div>
-    <div id="distant_clouds"></div>
-    <div id="distant_clouds1"></div>
-
-    <!-- images runner -->
-    <div id="idle"></div>
-    <div id="run"></div>
-    <div id="jump"></div>
-    <div id="dead"></div>
-
+    <div id="score">
+        <p>Score: <span id="scoreSpan"></span></p>
+    </div>
 </div>
 </body>
 </html>
