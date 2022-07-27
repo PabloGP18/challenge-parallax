@@ -1,23 +1,34 @@
+
 * { box-sizing: border-box;}
 html, body, #container { width: 100%; height: 100%; }
 body { margin: 0; }
 
-
-#game{
-    margin: 0 auto;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
+#container {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh;
+    width: 100vw;
+    flex-direction: column;
+    image-rendering: pixelated;
+    overflow: hidden;
+    position: fixed;
+    background: url('images/11_background.png') repeat-x 0 bottom;
+}
+
+#game{
+    width: 1000px;
+    height: 800px;
+    border: 1px solid #000000;
+
+
 }
 
 #start {
     position: absolute;
-    left: 50%;
+    left: 23%;
     top: 50%;
-    z-index: 11;
+    z-index: 12;
     background-color: darkgray;
     height: 100vh;
     width: 100%;
@@ -39,110 +50,101 @@ body { margin: 0; }
     border: 1px solid lightgray;
 }
 
-#container {
-    background: url('images/11_background.png');
-    image-rendering: pixelated;
-    overflow: hidden;
-    position: fixed;
+
+#character{
+    background: url("images/idle.gif") repeat-x 0 bottom;
+    width: 100px;
+    height: 100px;
+    position: relative;
+    top: 550px;
+    background-size: cover;
+    left: 50px;
+    z-index: 10;
+}
+.animate-jump {
+    animation: jumping 500ms;
+}
+
+@keyframes jumping{
+    0%{top: 550px;}
+    30%{top:400px;}
+    70%{top:400px;}
+    100%{top:550px;}
+}
+
+#block{
+    background: url("images/kolobok1_copy.png");
+    width:50px;
+    height: 40px;
+    position: relative;
+    top: 500px;
+    left: 950px;
+    animation: block 2s linear infinite;
+    z-index: 10;
+    background-size: cover;
+}
+
+@keyframes block{
+    0%{left: 100%;}
+    100%{left: -40px;}
 }
 
 #ground {
     background: url('images/01_ground.png') repeat-x 0 bottom;
     /*animation: loop 9s linear infinite;*/
     z-index: 10;
-}
-#kolobok{
-    background: url('images/kolobok1_copy.png') repeat-x 0 bottom;
-    z-index: 10;
-    width: 50px;
-    height: 50px;
-    position: relative;
-    top: 600px;
-    background-repeat: no-repeat;
-    animation: kolobok 5s infinite linear;
-    background-size: cover;
-    display: none;
-}
-
-@keyframes  kolobok{
-    0% {
-        left: 100%;
-    }
-    100% {
-        left: -40px;
-    }
-}
-
-#idle{
-    background: url('images/idle.gif')repeat-x 0 bottom;
-    z-index: 10;
-    width: 150px;
-    height: 220px;
-    top: 400px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    left: 200px;
-}
-
-.animate-jump {
-    animation: jump 500ms;
-}
-
-@keyframes jump{
-    0%{top:400px;}
-    30%{top:200px;}
-    70%{top:200px;}
-    80%{top:200px;}
-    90%{top:200px;}
-    100%{top:400px;}
+    position: fixed;
 }
 
 #trees_and_bushes {
-    background: url('images/02_trees and bushes.png')repeat-x 0 bottom;
-   /* animation: loop 7s linear infinite;*/
+    background: url('images/02_trees and bushes.png') repeat-x 0 bottom;
+    /*animation: loop 7s linear infinite;*/
     z-index: 9;
 }
 
 #distant_trees{
-    background: url('images/03_distant_trees.png')repeat-x 0 bottom;
+    background: url('images/03_distant_trees.png') repeat-x 0 bottom;
     /*animation: loop 6s linear infinite;*/
     z-index: 8;
 }
 
 #hill1{
-    background: url('images/05_hill1.png')repeat-x 0 bottom;
+    background: url('images/05_hill1.png') repeat-x 0 bottom;
     /*animation: loop 5s linear infinite;*/
     z-index: 7;
 }
 
 #hill2{
-    background: url('images/06_hill2.png')repeat-x 0 bottom;
+    background: url('images/06_hill2.png') repeat-x 0 bottom;
     /*animation: loop 4s linear infinite;*/
     z-index: 6;
 }
 
 #huge_clouds{
-    background: url('images/07_huge_clouds.png')repeat-x 0 bottom;
+    background: url('images/07_huge_clouds.png') repeat-x 0 bottom;
     /*animation: loop 4s linear infinite;*/
     z-index: 5;
 }
 
 #clouds {
-    background: url('images/08_clouds.png')repeat-x 0 bottom;
+    background: url('images/08_clouds.png') repeat-x 0 bottom;
     /*animation: loop 4s linear infinite;*/
     z-index: 4;
 }
 
 #distant_clouds {
-    background: url('images/10_distant_clouds.png')repeat-x 0 bottom;
+    background: url('images/10_distant_clouds.png') repeat-x 0 bottom;
     /*animation: loop 4s linear infinite;*/
     z-index: 4;
 }
 
+#score {
+    z-index: 12;
+}
 
-#ground, #trees_and_bushes, #distant_trees, #hill1, #hill2, #huge_clouds, #distant_trees, #clouds, #distant_clouds{
-    width: 250%; height: 100%;
+#ground, #trees_and_bushes, #distant_trees, #hill1, #hill2, #huge_clouds, #distant_trees, #clouds, #distant_clouds, #game{
+    width: 219%;
+    height: 100vh;
     background-size: 30%;
     bottom: 0; left: 0;
     position: fixed;
